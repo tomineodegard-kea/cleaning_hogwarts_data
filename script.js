@@ -5,7 +5,9 @@ const allStudents = [];
 
 window.addEventListener("DOMContentLoaded", getJson);
 
+// MVC: Controller
 async function getJson() {
+  // API url
   const url = "https://petlatkea.dk/2021/hogwarts/students.json";
   let data = await fetch(url);
   students = await data.json();
@@ -14,6 +16,7 @@ async function getJson() {
   createStudents();
 }
 
+// MVC: Model
 function createStudents() {
   students.forEach((object) => {
     const Student = {
@@ -73,7 +76,11 @@ function createStudents() {
     let studentPicture = new Image();
     studentPicture.scr = "images/" + studentInfo.lastName + ".png";
     studentInfo.image = studentPicture.scr;
-
-    console.table(studentInfo);
   });
+  showAllStudents();
+}
+
+// MVC: View
+function showAllStudents() {
+  console.table(allStudents);
 }
