@@ -12,7 +12,6 @@ async function getJson() {
   let data = await fetch(url);
   students = await data.json();
 
-  console.table(students);
   createStudents();
 }
 
@@ -76,6 +75,8 @@ function createStudents() {
     let studentPicture = new Image();
     studentPicture.scr = "images/" + studentInfo.lastName + ".png";
     studentInfo.image = studentPicture.scr;
+
+    allStudents.push(studentInfo);
   });
   showAllStudents();
 }
