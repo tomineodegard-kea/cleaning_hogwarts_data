@@ -68,6 +68,12 @@ function createStudents() {
     //Change to upper- and lower case
     studentInfo.house = studentInfo.house.substring(0, 1).toUpperCase() + studentInfo.house.substring(1).toLowerCase();
 
+    // // ----- Image -----
+    //Find the right image
+    let studentPicture = new Image();
+    studentPicture.scr = "images/" + studentInfo.lastName + ".png";
+    studentInfo.image = studentPicture.scr;
+
     console.table(studentInfo);
   });
 }
